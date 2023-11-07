@@ -364,6 +364,7 @@ in
                   responseFile = builtins.toFile "response-file" ''
                     --optghc=-XFlexibleContexts
                     --optghc=-Wwarn
+                    --optghc=-fplugin-opt PlutusTx.Plugin:defer-errors
                   '';
                   l = [
                     "cardano-binary"
@@ -393,7 +394,7 @@ in
                 packages = {
                   cardano-crypto-class.components.library.pkgconfig = pkgs.lib.mkForce [ [ pkgs.libsodium-vrf pkgs.secp256k1 ] ];
                   cardano-crypto-praos.components.library.pkgconfig = pkgs.lib.mkForce [ [ pkgs.libsodium-vrf ] ];
-                  plutus-simple-model.components.library.setupHaddockFlags = [ "--optghc=-fplugin-opt PlutusTx.Plugin:defer-errors" ];
+                  plutus-simple-model.components.library.setupHaddockFlags = [  ];
                 };
               })
             ];
