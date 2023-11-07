@@ -364,7 +364,6 @@ in
                   responseFile = builtins.toFile "response-file" ''
                     --optghc=-XFlexibleContexts
                     --optghc=-Wwarn
-                    --optghc=-fplugin-opt=PlutusTx.Plugin:defer-errors
                   '';
                   l = [
                     "cardano-binary"
